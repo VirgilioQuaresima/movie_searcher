@@ -28,15 +28,22 @@ def retrive_provider(result_id: int, result_type: str):
     response = dict(response.json())
     if not response['results'].get('IT'):
         return []
-    return dict(response['results']['IT']).get('flatrate')
-
+    flat=dict(response['results']['IT']).get('flatrate') or []
+    buy=dict(response['results']['IT']).get('buy') or []
+    rent=dict(response['results']['IT']).get('rent') or []
+    lista_final=flat+buy+rent
+    return lista_final
 
 def transform_date(original_date: str) -> str:
     ''''''
     if not original_date:
         return None
-    splitted = original_date.split('-')
-    return f"{splitted[2]}/{splitted[1]}/{splitted[0]}"
+    try:
+        splitted = original_date.split('-')
+        return f"{splitted[2]}/{splitted[1]}/{splitted[0]}"
+    except:
+        print(original_date)
+        return original_date
 
 
 def transform_movies_datas(movies: list) -> list:
@@ -64,6 +71,7 @@ def transform_tv_series_datas(series: list) -> list:
 
 
 def transform_providers_datas(providers: list) -> list:
+    print(providers)
     with open('providers_urls.csv', 'r') as f:
         lines = f.readlines()
     d = dict()

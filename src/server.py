@@ -3,13 +3,13 @@ from tmdb_API import search_all, get_providers
 app = Flask(__name__)
 
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/", methods=["POST", "GET"])
 def home():
     if request.method == "POST":
         q = request.form["query"]
-        url = f'http://127.0.0.1:5000/search/{q}'
-        return redirect(url_for(url))
+        url = f'/search/{q}'
 
+        return redirect(url_for('searches', query=q))
     return render_template('home.html')
 
 

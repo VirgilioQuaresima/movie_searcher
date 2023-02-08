@@ -2,13 +2,14 @@
 
 <head>
     <title>Movie Searcher</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/app.css') }}">
 </head>
 
 <body>
     <h1>Movie Searcher</h1>
     <p>by Virgilio</p>
     <form method="post">
-        <input type="text" name="query" />
+        <input type="text" name="query" placeholder="search.." />
         <br /><br />
         <button type="submit" value="">Submit</button>
     </form>
