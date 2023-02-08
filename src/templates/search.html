@@ -1,0 +1,29 @@
+<html>
+
+<head>
+    <title>Movie Searcher</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/app.css') }}">
+</head>
+
+<body>
+    <h1>Movie Searcher</h1>
+    <p>by Virgilio</p>
+    <table class="my-table">
+        <thead>
+            <th>TITOLO</th>
+            <th>DATA USCITA</th>
+            <th>TIPO </th>
+        </thead>
+        <tbody>
+            {% for el in lista %}
+            <tr>
+                <td><a href="/providers/{{el.type}}/{{el.id}}">{{el.title or el.name}}</a></td>
+                <td>{{el.release_date}}</td>
+                <td>{{el.type}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>
