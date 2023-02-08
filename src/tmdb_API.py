@@ -42,7 +42,6 @@ def transform_date(original_date: str) -> str:
         splitted = original_date.split('-')
         return f"{splitted[2]}/{splitted[1]}/{splitted[0]}"
     except:
-        print(original_date)
         return original_date
 
 

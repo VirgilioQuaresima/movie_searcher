@@ -1,6 +1,6 @@
 #!/bin/bash
-# app="docker.test"
-# docker build -t ${app} .
-docker run -d -p 56733:80 \
+app="movie_searcher"
+docker build -t ${app} .
+docker run -d -p 3000:5000 \
   --name=moviesearcher \
   -v $PWD:/app ${app}

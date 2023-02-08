@@ -7,8 +7,6 @@ app = Flask(__name__)
 def home():
     if request.method == "POST":
         q = request.form["query"]
-        url = f'/search/{q}'
-
         return redirect(url_for('searches', query=q))
     return render_template('home.html')
 
