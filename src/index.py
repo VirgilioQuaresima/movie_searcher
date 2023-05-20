@@ -5,9 +5,9 @@ app = Flask(__name__)
 
 @app.route("/", methods=["POST", "GET"])
 def home():
-    # if request.method == "POST":
-    #     q = request.form["query"]
-    #     return redirect(url_for('searches', query=q))
+    if request.method == "POST":
+        q = request.form["query"]
+        return redirect(url_for('searches', query=q))
     return render_template('home.html')
 
 
