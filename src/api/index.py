@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
-from tmdb_API import search_all, get_providers
+from libs.tmdb_API import search_all, get_providers
 app = Flask(__name__)
 
 
